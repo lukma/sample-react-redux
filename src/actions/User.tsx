@@ -1,6 +1,6 @@
 import * as constants from '../constants';
 
-export interface FetchUsers {
+export interface FetchUsersRequest {
     type: constants.FETCH_USERS_REQUEST;
 }
 
@@ -14,9 +14,9 @@ export interface FetchUsersFailure {
     error: Error;
 }
 
-export type FetchUsersAction = FetchUsers | FetchUsersSuccess | FetchUsersFailure;
+export type FetchUsersAction = FetchUsersRequest | FetchUsersSuccess | FetchUsersFailure;
 
-export function fetchUsers(): FetchUsers {
+export function fetchUsersRequest(): FetchUsersRequest {
     return {
         type: constants.FETCH_USERS_REQUEST
     };

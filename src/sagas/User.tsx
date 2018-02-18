@@ -1,9 +1,9 @@
-import { put, call, fork, all } from 'redux-saga/effects';
+import { put, call } from 'redux-saga/effects';
 import * as actions from '../actions/User';
 import { UserApi } from '../api/User';
 
-function* fetchUsersData() {
-    yield put(actions.fetchUsers());
+export function* fetchUsers() {
+    yield put(actions.fetchUsersRequest());
     let response = yield call(UserApi.fetchUsers);
     if (response instanceof Array) {
         yield put(actions.fetchUsersSuccess(response));
@@ -12,8 +12,8 @@ function* fetchUsersData() {
     }
 }
 
-export function* rootUser() {
-    yield all([
-        fork(fetchUsersData)
-    ]);
+export function* watchFetchUsers() {
+    while (true) {
+        yield call(actions.fetchUsersRequest, fetchUsers);
+    }
 }

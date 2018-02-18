@@ -1,22 +1,22 @@
 import * as React from 'react';
 import { Dispatch } from 'react-redux';
 import { UserItemData } from '../constants';
-import { FetchUsersAction } from '../actions/User';
+import * as actions from '../actions/User';
 import UserItem from './UserItem';
 
 export interface Props {
+    dispatch: Dispatch<actions.FetchUsersAction>;
     data: UserItemData[];
     error: Error;
-    dispatch: Dispatch<FetchUsersAction>;
 }
 
-function UserList({ data, error, dispatch }: Props) {
+function UserList(props: Props) {
     return (
         <div>
             <ul>
-                {data != null ? data.map(item =>
+                {props.data != null ? props.data.map(item =>
                     <UserItem key={item.id} item={item} />
-                ) : error == null ? <a>No data</a> : <a>{error}</a>}
+                ) : props.error == null ? <a>No data</a> : <a>{props.error}</a>}
             </ul>
         </div>
     );
