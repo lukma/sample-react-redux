@@ -7,6 +7,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers';
 import rootSaga from './sagas';
 import AppModule from './containers/AppModule';
+import 'bootstrap/dist/css/bootstrap.css';
 // import registerServiceWorker from './registerServiceWorker';
 
 const sagaMiddleware = createSagaMiddleware();

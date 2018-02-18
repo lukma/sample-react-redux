@@ -5,20 +5,29 @@ import UserModule from './UserModule';
 
 const AppModule = () => (
     <Router>
-        <div style={{ display: 'flex' }}>
-            <div>
-                <ul>
-                    <li>
-                        <Link to="/">Dashboard</Link>
-                    </li>
-                    <li>
-                        <Link to="/user">User Module</Link>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <Route exact={true} path="/" component={Dashboard} />
-                <Route path="/user" component={UserModule} />
+        <div>
+            <nav className="navbar navbar-dark bg-dark">
+                <a className="navbar-brand" href="#">
+                    Header
+                </a>
+            </nav>
+            <div style={{ display: 'flex' }}>
+                <div style={{ width: 200 }}>
+                    <ul className="nav flex-column">
+                        <li className="nav-item">
+                            <a className="nav-link" ><Link to="/">Dashboard</Link></a>
+                        </li>
+                    </ul>
+                    <ul className="nav">
+                        <li className="nav-item">
+                            <a className="nav-link" ><Link to="/user">User</Link></a>
+                        </li>
+                    </ul>
+                </div>
+                <div style={{ flex: 1 }}>
+                    <Route exact={true} path="/" component={Dashboard} />
+                    <Route path="/user" component={UserModule} />
+                </div>
             </div>
         </div>
     </Router>

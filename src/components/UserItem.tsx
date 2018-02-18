@@ -7,7 +7,10 @@ export interface Props {
 
 function UsersItem({ item }: Props) {
     return (
-        <li>{item.email}</li>
+        <tr>
+            <td>{item.id}</td>
+            <td>{item.email}</td>
+        </tr>
     );
 }
 

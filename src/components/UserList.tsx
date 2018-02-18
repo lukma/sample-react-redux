@@ -13,11 +13,13 @@ export interface Props {
 function UserList(props: Props) {
     return (
         <div>
-            <ul>
-                {props.data != null ? props.data.map(item =>
-                    <UserItem key={item.id} item={item} />
-                ) : props.error == null ? <a>No data</a> : <a>{props.error}</a>}
-            </ul>
+            <table className="table table-striped table-sm">
+                <tbody>
+                    {props.data != null ? props.data.map(item =>
+                                <UserItem key={item.id} item={item} />
+                    ) : props.error == null ? <a>No data</a> : <a>{props.error}</a>}
+                </tbody>
+            </table>
         </div>
     );
 }
