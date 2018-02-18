@@ -6,7 +6,7 @@ import { StoreState } from './stores';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers';
 import rootSaga from './sagas';
-import UserModule from './containers/UserModule';
+import AppModule from './containers/AppModule';
 // import registerServiceWorker from './registerServiceWorker';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -15,7 +15,7 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>
-    <UserModule />
+    <AppModule />
   </Provider>,
   document.getElementById('root') as HTMLElement
 );
